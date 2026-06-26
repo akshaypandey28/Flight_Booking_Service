@@ -12,6 +12,12 @@ const setUpAndStartServer = () => {
     app.use(express.json());
 
     app.use(express.urlencoded({ extended: true }));
+
+    app.get('/api/v1/home',(req,res) => {
+        return res.json({
+            message:"hitting the booking service"
+        })
+    })
     
     app.use('/api', apiRoutes);
     app.listen(PORT, () => {
